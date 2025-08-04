@@ -19,15 +19,15 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 	@Bean
-	  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 	    http
-	      .authorizeHttpRequests((authorize) -> authorize
-	        .anyRequest().fullyAuthenticated()
-	      )
-	      .formLogin(Customizer.withDefaults());
+	        .authorizeHttpRequests(auth -> auth
+	            .anyRequest().permitAll()
+	        )
+	        .csrf().disable();
 
 	    return http.build();
-	  }
+	}
 	
 	@Bean
 	public LdapTemplate ldapTemplate() {
