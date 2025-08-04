@@ -21,4 +21,9 @@ public class LdapService {
 		
 	}
 
+	public void addUser(LdapUser ldapUser) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
